@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - struct
-struct User {
+struct UserStruct {
     var name: String
     var age: Int
     
@@ -18,5 +18,24 @@ struct User {
     
     mutating func getOld() {
         age += 1
+    }
+}
+
+// MARK: - class
+class UserClass {
+    var name: String
+    var age: Int
+    
+    func changeName(to newName: String) {
+        name = newName
+    }
+    
+    func getOld() {
+        age += 1
+    }
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
     }
 }
