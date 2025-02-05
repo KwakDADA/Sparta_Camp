@@ -59,6 +59,15 @@ func testProtocolExample() {
     print(robot.greet())
 }
 
+func testExtensionExample() {
+    print("-- extension example --")
+    
+    let alien = Alien()
+    
+    print(alien.greet())
+}
+
 testStructExample()
 testClassExample()
 testProtocolExample()
+testExtensionExample()

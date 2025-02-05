@@ -8,3 +8,9 @@
 protocol Greetable {
     func greet() -> String
 }
+
+extension Greetable {
+    func greet() -> String {
+        return "Hello!"
+    }
+}
