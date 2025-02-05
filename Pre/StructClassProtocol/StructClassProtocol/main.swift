@@ -49,5 +49,16 @@ func testClassExample() {
     result(user: user1, anotherUser: user2)
 }
 
+func testProtocolExample() {
+    print("-- protocol example --")
+    
+    let person = Person(name: "다은")
+    let robot = Robot()
+    
+    print(person.greet())
+    print(robot.greet())
+}
+
 testStructExample()
 testClassExample()
+testProtocolExample()
