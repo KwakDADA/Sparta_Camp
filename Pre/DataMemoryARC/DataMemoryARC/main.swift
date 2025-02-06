@@ -29,5 +29,19 @@ func testStackExample() {
     print(stack.top() ?? "empty")
 }
 
+func testCircularReferenceExample() {
+    print("-- circular reference example --")
+    var daeun: Person? = .init(name: "Daeun")
+    var cappu: Pet? = .init()
+    
+    
+    daeun?.pet = cappu
+    cappu?.owner = daeun // 순환 참조
+    
+    daeun = nil // deinit 호출 X: 메모리 해제 안되었음
+    cappu = nil // deinit 호출 X: 메모리 해제 안되었음
+}
+
 testQueueExample()
 testStackExample()
+testCircularReferenceExample()
