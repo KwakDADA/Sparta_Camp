@@ -36,10 +36,10 @@ func testCircularReferenceExample() {
     
     
     daeun?.pet = cappu
-    cappu?.owner = daeun // 순환 참조
+    cappu?.owner = daeun
     
-    daeun = nil // deinit 호출 X: 메모리 해제 안되었음
-    cappu = nil // deinit 호출 X: 메모리 해제 안되었음
+    daeun = nil
+    cappu = nil
 }
 
 testQueueExample()

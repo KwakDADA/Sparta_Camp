@@ -6,7 +6,7 @@
 //
 
 class Pet {
-    var owner: Person?
+    weak var owner: Person?
     
     init(owner: Person? = nil) {
         self.owner = owner
