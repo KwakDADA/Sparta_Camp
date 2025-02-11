@@ -9,10 +9,26 @@
 func testClosureExample() {
     print("-- closure example --")
     
-    var nums = [1, 2, 3, 4, 5]
-    var doubled = nums.map { $0 * 2 }
+    let nums = [1, 2, 3, 4, 5]
+    let doubled = nums.map { $0 * 2 }
     
     print(doubled)
 }
 
+func testCaptureExample() {
+    print("-- capture example --")
+    
+    var counter = 0
+    let incrementCounter = {
+        counter += 1
+    }
+    
+    print(counter)
+    incrementCounter()
+    print(counter)
+    incrementCounter()
+    print(counter)
+}
+
 testClosureExample()
+testCaptureExample()
