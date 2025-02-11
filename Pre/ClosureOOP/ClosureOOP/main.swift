@@ -30,5 +30,18 @@ func testCaptureExample() {
     print(counter)
 }
 
+func testOOPExample() {
+    print("-- OOP example --")
+    
+    let dog: Dog = .init(name: "Cappu")
+    let cat: Cat = .init(name: "Nabi")
+    let animals: [Animal] = [dog, cat]
+    
+    for animal in animals {
+        animal.makeSound()
+    }
+}
+
 testClosureExample()
 testCaptureExample()
+testOOPExample()
