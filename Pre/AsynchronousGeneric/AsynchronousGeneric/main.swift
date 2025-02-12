@@ -65,7 +65,28 @@ func testGenericFunctionExample() {
     print(a, b)
 }
 
+func testGenericStackExample() {
+    print("-- generic stack example --")
+    
+    struct Stack<T> {
+        private var elements: [T] = []
+        
+        mutating func push(_ element: T) {
+            elements.append(element)
+        }
+        
+        mutating func pop() -> T? {
+            return elements.isEmpty ? nil : elements.removeLast()
+        }
+    }
+    
+    var intStack = Stack<Int>()
+    intStack.push(1)
+    intStack.push(2)
+    print(intStack.pop() ?? "the stack is empty")
+}
+
 testAsyncExample()
 testNetworkSimulationExample()
 testGenericFunctionExample()
-
+testGenericStackExample()
