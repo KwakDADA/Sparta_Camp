@@ -50,5 +50,22 @@ func testNetworkSimulationExample() {
     CFRunLoopRun()
 }
 
+func testGenericFunctionExample() {
+    print("-- generic function example --")
+    
+    func swapValues<T>(_ a: inout T, _ b: inout T) {
+        let temp = a
+        a = b
+        b = temp
+    }
+    
+    var a = 10
+    var b = 20
+    swapValues(&a, &b)
+    print(a, b)
+}
+
 testAsyncExample()
 testNetworkSimulationExample()
+testGenericFunctionExample()
+
