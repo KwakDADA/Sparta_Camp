@@ -19,4 +19,14 @@ func testSimplePublisherSubscriberExample() {
         .cancel()
 }
 
+func testJustPublisherExample() {
+    print("-- just publisher example --")
+    
+    Just(100)
+        .map { $0 + 50 }
+        .sink { print($0) }
+        .cancel()
+}
+
 testSimplePublisherSubscriberExample()
+testJustPublisherExample()
