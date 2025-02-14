@@ -28,5 +28,35 @@ func testJustPublisherExample() {
         .cancel()
 }
 
+func testURLSeesionWithCombineExample() {
+    print("-- URLSession with combine example --")
+    
+    let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
+    
+    URLSession.shared.dataTaskPublisher(for: url)
+        .map { $0.data }
+        .decode(type: MyData.self, decoder: JSONDecoder())
+        .sink(receiveCompletion: { completion in
+            switch completion {
+            case .finished:
+                print("완료")
+            case .failure(let error):
+                print("실패 - error: \(error)")
+            }
+            CFRunLoopStop(CFRunLoopGetCurrent())
+        }, receiveValue: { data in
+            print(data.title)
+        })
+        .store(in: &subsSet)
+}
+
+
 testSimplePublisherSubscriberExample()
 testJustPublisherExample()
+
+var subsSet: Set<AnyCancellable> = .init()
+testURLSeesionWithCombineExample()
+
+
+CFRunLoopRun()
+
