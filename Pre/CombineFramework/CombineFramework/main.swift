@@ -50,6 +50,21 @@ func testURLSeesionWithCombineExample() {
         .store(in: &subsSet)
 }
 
+func testTimerPublisherExample() {
+    print("-- timer publisher example --")
+    
+    let dispatchQueue = DispatchQueue.global()
+    
+    let cancellable = Timer.publish(every: 1, on: .main, in: .default)
+        .autoconnect()
+        .sink { print($0) }
+    
+    dispatchQueue.asyncAfter(deadline: .now() + 5) {
+        cancellable.cancel()
+    }
+    
+}
+
 
 testSimplePublisherSubscriberExample()
 testJustPublisherExample()
@@ -57,6 +72,6 @@ testJustPublisherExample()
 var subsSet: Set<AnyCancellable> = .init()
 testURLSeesionWithCombineExample()
 
+testTimerPublisherExample()
 
 CFRunLoopRun()
-
